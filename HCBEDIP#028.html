@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Certificate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #000000, #1b1b1b);
+      padding: 50px 20px;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      position: relative;
+    }
+    .floating-icon {
+      position: fixed;
+      width: 60px;
+      opacity: 0.12;
+      animation: floatUpDown 6s ease-in-out infinite alternate, glow 3s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+      filter: drop-shadow(0 0 6px rgba(165, 42, 42, 0.3));
+    }
+    .cap {
+      left: 10%;
+      top: 20%;
+      animation-delay: 0s;
+    }
+    .book {
+      right: 15%;
+      top: 40%;
+      animation-delay: 2s;
+    }
+    .scroll-icon {
+      left: 50%;
+      top: 75%;
+      width: 45px;
+      animation-delay: 4s;
+    }
+    @keyframes floatUpDown {
+      0% { transform: translateY(0) translateX(0) rotate(0deg); }
+      50% { transform: translateY(-20px) translateX(10px) rotate(5deg); }
+      100% { transform: translateY(0) translateX(0) rotate(0deg); }
+    }
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(165, 42, 42, 0.3)); }
+      50% { filter: drop-shadow(0 0 15px rgba(205, 133, 63, 0.6)); }
+    }
+    .container {
+      background: #111;
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 35px 50px;
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+      color: #e6e6e6;
+      position: relative;
+      z-index: 1;
+      border: 3px solid #B8860B;
+      animation: fadeInContent 1s ease forwards;
+    }
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 4px solid #DAA520;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      background: black;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.1);
+    }
+    .center-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFD700;
+      letter-spacing: 1.2px;
+      margin-bottom: 5px;
+      text-shadow: 1px 1px 2px #8B4513;
+    }
+    .center-address {
+      font-size: 14px;
+      color: #ccc;
+      font-weight: 500;
+    }
+    h1 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 35px;
+      color: #F4D03F;
+      position: relative;
+      padding-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    h1::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background: #B87333;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 4px;
+      animation: underlineGrow 1.5s ease forwards;
+    }
+    @keyframes underlineGrow {
+      0% { width: 0; }
+      100% { width: 60px; }
+    }
+    .info {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #F0E68C;
+    }
+    .info strong {
+      color: #CD853F;
+    }
+    .courses {
+      background: rgba(139, 69, 19, 0.1);
+      border-radius: 18px;
+      padding: 25px 30px;
+      box-shadow: 0 8px 20px rgba(184, 115, 51, 0.2);
+      margin-bottom: 35px;
+      border: 1px solid #8B4513;
+    }
+    .courses p {
+      font-weight: 700;
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #FFD700;
+      letter-spacing: 0.06em;
+    }
+    .courses ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .courses li {
+      font-size: 18px;
+      color: #D2B48C;
+      padding: 10px 0;
+      border-bottom: 1px solid #8B4513;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+    .courses li:last-child {
+      border-bottom: none;
+    }
+    .courses li:hover {
+      color: #F0E68C;
+    }
+    .footer {
+      text-align: center;
+      font-size: 15px;
+      color: #aaa;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 520px) {
+      .container {
+        padding: 35px 20px 40px;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      .center-name {
+        font-size: 24px;
+      }
+      .logo {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+      }
+      .info {
+        font-size: 18px;
+      }
+      .courses p {
+        font-size: 20px;
+      }
+      .courses li {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating icons -->
+  <svg class="floating-icon cap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#B87333">
+    <path d="M32 2L2 16l30 14 30-14-30-14zm0 20L8 24v18l24 14 24-14V24L32 22z"/>
+  </svg>
+
+  <svg class="floating-icon book" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="#DAA520">
+    <path d="M10 12h44v40H10zM12 14v36h40V14z"/>
+    <path d="M24 18h16v28H24z" fill="#8B4513"/>
+  </svg>
+
+  <svg class="floating-icon scroll-icon" xmlns="http://www.w3.org/2000/svg" fill="#B87333" viewBox="0 0 24 24">
+    <path d="M12 2v20m-7-7l7 7 7-7"/>
+  </svg>
+
+  <div class="container" role="main">
+    <header class="header">
+      <img class="logo" src="logo.png" alt="Education Center Logo" />
+      <div class="center-name">High Class Business Education</div>
+      <div class="center-address">Student Details</div>
+    </header>
+
+    <h1>Certificate of Completion</h1>
+
+    <div class="info"><strong>ID:</strong> HCBEDIP#028</div>
+    <div class="info"><strong>Name:</strong> Fathima Naska Arshad</div>
+
+    <section class="courses" aria-label="Completed courses">
+      <p>Completed Courses:</p>
+      <ul>
+        <li>HCBE-I-25-134 - Advance Certificate level in CREAM MAKING</li>
+<li>HCBE-I-25-135 - Advance Certificate level in HENNA DESIGNING</li>
+<li>HCBE-I-25-136 - Advance Certificate level in HENNA MIXOLOG</li>
+<li>HCBE-I-25-137 - Advance Certificate level in POWDER MAKING</li>
+<li>HCBE-I-25-138 - Advance Certificate level in SOAP MAKING</li>
+<li>HCBE-I-25-443 - Advance Diploma in HENNA MIXOLOGY</li>
+      </ul>
+    </section>
+
+    <footer class="footer">✅ Verified via QR code • Hosted on GitHub</footer>
+  </div>
+
+</body>
+</html>
